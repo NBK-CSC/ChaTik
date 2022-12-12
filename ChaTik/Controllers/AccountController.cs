@@ -15,6 +15,7 @@ public class AccountController : Controller
         _userManager = userManager;
         _signInManager = signInManager;
     }
+    
     [HttpGet]
     public IActionResult Register()
     {
@@ -26,7 +27,7 @@ public class AccountController : Controller
     {
         if(ModelState.IsValid)
         {
-            User user = new User { Email = model.Email, UserName = model.Email, Year=model.Year};
+            User user = new User { Email = model.Email, UserName = model.Name};
             // добавляем пользователя
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)

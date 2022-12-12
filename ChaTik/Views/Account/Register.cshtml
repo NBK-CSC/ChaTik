@@ -1,4 +1,6 @@
 ﻿@model ChaTik.ModelViews.RegisterViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 <h2>Регистрация нового пользователя</h2>
 <form method="post" asp-controller="Account" asp-action="Register">
     <div asp-validation-summary="ModelOnly"></div>
@@ -8,9 +10,9 @@
         <span asp-validation-for="Email"></span>
     </div>
     <div>
-        <label asp-for="Year"></label><br />
-        <input asp-for="Year" />
-        <span asp-validation-for="Year"></span>
+        <label asp-for="Name"></label><br />
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
     </div>
     <div>
         <label asp-for="Password"></label><br />
