@@ -1,6 +1,5 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using ChaTik;
+using Microsoft.AspNetCore;
 
-app.MapGet("/", () => "Hello World!");
-
-app.Run();
+var builder = WebHost.CreateDefaultBuilder(args).UseStartup<Startup>();
+builder.Build().Run();
