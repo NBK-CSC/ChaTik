@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ChaTik.ModelViews;
+namespace ChaTik.ViewModels;
 
 public class RegisterViewModel
 {
