@@ -34,7 +34,7 @@ public class AccountController : Controller
             {
                 // установка куки
                 await _signInManager.SignInAsync(user, false);
-                //return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -48,7 +48,7 @@ public class AccountController : Controller
     }
     
     [HttpGet]
-    public IActionResult Login(string returnUrl = null)
+    public IActionResult Login(string? returnUrl = null)
     {
         return View(new LoginViewModel { ReturnUrl = returnUrl });
     }
@@ -59,8 +59,9 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
+            var user = await _userManager.FindByEmailAsync(model.Email);
             var result = 
-                await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                await _signInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, false);
             if (result.Succeeded)
             {
                 // проверяем, принадлежит ли URL приложению
@@ -68,15 +69,11 @@ public class AccountController : Controller
                 {
                     return Redirect(model.ReturnUrl);
                 }
-                else
-                {
-                    //return RedirectToAction("Index", "Home");
-                }
+
+                return RedirectToAction("Index", "Home");
             }
-            else
-            {
-                ModelState.AddModelError("", "Неправильный логин и (или) пароль");
-            }
+
+            ModelState.AddModelError("", "Неправильный логин и (или) пароль");
         }
         return View(model);
     }
@@ -87,6 +84,6 @@ public class AccountController : Controller
     {
         // удаляем аутентификационные куки
         await _signInManager.SignOutAsync();
-        return RedirectToAction();
+        return RedirectToAction("Index", "Home");
     }
 }

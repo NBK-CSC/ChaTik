@@ -4,8 +4,8 @@ namespace ChaTik.Controllers;
 
 public class HomeController : Controller
 {
-    public string Index()
+    public IActionResult Index()
     {
-        return "Hello world";
+        return View();
     }
 }
