@@ -1,0 +1,23 @@
+﻿@model ChaTik.ViewModels.EditUserViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewBag.Title = "Редактирование пользователя";
+}
+<form asp-action="Edit" asp-controller="Users">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <input type="hidden" asp-for="Id" />
+    </div>
+    <div>
+        <label asp-for="Email">Email</label>
+        <input type="text" asp-for="Email"/>
+    </div>
+    <div>
+        <label asp-for="Name">Имя</label>
+        <input type="number" asp-for="Name"/>
+    </div>
+    <div>
+        <input type="submit" value="Сохранить"/>
+    </div>
+</form>

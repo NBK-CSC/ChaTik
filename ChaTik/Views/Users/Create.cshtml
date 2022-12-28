@@ -1,0 +1,24 @@
+﻿@model ChaTik.ViewModels.CreateUserViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewBag.Title = "Добавление пользователя";
+}
+<form asp-action="Create" asp-controller="Users">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Email">Email</label>
+        <input type="text" asp-for="Email"/>
+    </div>
+        <div>
+            <label asp-for="Name">Name</label>
+            <input type="text" asp-for="Name"/>
+        </div>
+    <div>
+        <label asp-for="Password">Пароль</label>
+        <input type="password" asp-for="Password" />
+    </div>
+    <div>
+        <input type="submit" value="Добавить"/>
+    </div>
+</form>
