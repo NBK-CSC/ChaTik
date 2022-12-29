@@ -15,6 +15,9 @@ public class Startup
  
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddTransient<IPasswordValidator<User>,
+            CustomPasswordValidator>(serv => new CustomPasswordValidator(6));
+        
         services.AddDbContext<ApplicationContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
  
