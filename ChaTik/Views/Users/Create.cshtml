@@ -4,20 +4,20 @@
     ViewBag.Title = "Добавление пользователя";
 }
 <form asp-action="Create" asp-controller="Users">
-    <div asp-validation-summary="All"></div>
+    <div asp-validation-summary="All" class="text-danger"></div>
     <div>
-        <label asp-for="Email">Email</label>
-        <input type="text" asp-for="Email"/>
+        <label asp-for="Email" class="control-label">Email</label>
+        <input type="text" asp-for="Email" class="form-control"/>
     </div>
         <div>
-            <label asp-for="Name">Name</label>
-            <input type="text" asp-for="Name"/>
+            <label asp-for="Name" class="control-label">Name</label>
+            <input type="text" asp-for="Name" class="form-control"/>
         </div>
     <div>
-        <label asp-for="Password">Пароль</label>
-        <input type="password" asp-for="Password" />
+        <label asp-for="Password" class="control-label">Пароль</label>
+        <input type="password" asp-for="Password" class="form-control"/>
     </div>
     <div>
-        <input type="submit" value="Добавить"/>
+        <input type="submit" value="Добавить" class="btn btn-outline-secondary"/>
     </div>
 </form>

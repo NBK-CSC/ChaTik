@@ -4,19 +4,19 @@
     ViewBag.Title = "Редактирование пользователя";
 }
 <form asp-action="Edit" asp-controller="Users">
-    <div asp-validation-summary="All"></div>
-    <div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
         <input type="hidden" asp-for="Id" />
     </div>
-    <div>
-        <label asp-for="Email">Email</label>
-        <input type="text" asp-for="Email"/>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label">Email</label>
+        <input type="text" asp-for="Email" class="form-control"/>
     </div>
-    <div>
-        <label asp-for="Name">Имя</label>
-        <input type="number" asp-for="Name"/>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Имя</label>
+        <input type="number" asp-for="Name" class="form-control"/>
     </div>
-    <div>
-        <input type="submit" value="Сохранить"/>
+    <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-outline-secondary"/>
     </div>
 </form>
