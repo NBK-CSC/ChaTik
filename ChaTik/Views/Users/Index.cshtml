@@ -14,10 +14,13 @@
         <tr>
             <td>@user.Email</td>
             <td>@user.UserName</td>
-            <td>
+<td>
                 <form asp-action="Delete" asp-route-id="@user.Id" method="post">
                     <a asp-action="Edit" asp-route-id="@user.Id">Изменить</a>
-                    <button type="submit"> Удалить </button>
+                    <a asp-action="ChangePassword" asp-route-id="@user.Id">Сменить пароль</a>
+                    <button type="submit">
+                        Удалить
+                    </button>
                 </form>
             </td>
         </tr>
